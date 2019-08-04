@@ -1,5 +1,5 @@
 const mysql = require("mysql");
-// const inquirer = require("inquirer");
+const inquirer = require("inquirer");
 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -24,7 +24,21 @@ function printData() {
     connection.query("SELECT * FROM products", function(err, res) {
       if (err) throw err;
       console.table(res);
-    connection.end();
+    promptUser();
     });
   }
+
+function promptUser(){
+    inquirer
+        .prompt([
+        {
+            type: "input",
+            name: "inputId",
+            message: "Please input the product ID of the item you would like to purchase?"
+        }
+    ]).then(function(){
+        
+    })
+    connection.end();
+}
 
