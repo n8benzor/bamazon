@@ -24,3 +24,13 @@ values("PLaystation 4", "Electronics", 367.50, 25),
 ("Blu Ray Movie", "Music, Movies, Games", 19.99, 150),
 ("Jeans", "Clothing", 39.99, 500),
 ("Diamond Ring", "Jewelry", 5000.00, 5);
+
+ALTER TABLE products
+ADD COLUMN product_sales_column DECIMAL(10,4) not null AFTER stock_quantity;
+
+create table departments (
+    department_id integer not null auto_increment,
+    department_name varchar(45) not null,
+    over_head_costs decimal(10,4) not null,
+    PRIMARY KEY (department_id)
+);
