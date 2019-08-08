@@ -70,7 +70,7 @@ function newDept() {
     ]).then(function (deptValues) {
         connection.query(
             "INSERT INTO departments (department_name, over_head_costs) VALUES (?, ?)",
-            [ deptValues.dept,  deptValues.overhead],
+            [deptValues.dept, deptValues.overhead],
             function (err, res) {
                 if (err) throw err;
                 console.log("You have just added the new department: " + deptValues.dept);
@@ -83,11 +83,12 @@ function newDept() {
 
 function salesDept() {
     connection.query(
-        "SELECT departments.department_id, departments.department_name, departments.over_head_costs, " +
-        "SUM(IFNULL(products.product_sales, 0)) as product_sales, " +
-        "SUM(IFNULL(products.product_sales, 0)) - departments.over_head_costs as total_profit " +
-        "FROM departments " +
-        "INNER JOIN products ON products.department_name = departments.department_name",
+        "select department_id, departments.department_name, over_head_costs, product_sales " +
+        // "SUM(IFNULL(products.product_sales, 0)) as product_sales, " +
+        // "SUM(IFNULL(products.product_sales, 0)) - departments.over_head_costs as total_profit, " +
+        "from products " +
+        "RIGHT join departments on products.department_name = departments.department_name " +
+        "GROUP BY department_name, department_id, over_head_costs",
         function (err, res) {
             console.table(res);
             supervisorMenu();

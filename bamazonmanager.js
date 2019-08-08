@@ -134,7 +134,8 @@ function addProduct(){
                 product_name: newItem.addName,
                 department_name: newItem.addDept,
                 price: newItem.addPrice,
-                stock_quantity: newItem.addQuantity
+                stock_quantity: newItem.addQuantity,
+                product_sales: 0
             }
         ) 
         managerMenu();     
