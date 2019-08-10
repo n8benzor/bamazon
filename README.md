@@ -76,9 +76,10 @@ The departments table is used to store the department information:
 The Inquirer NPM is used to create prompts through the CLI so that the user can choose options on whatever task they want to perform.
 ***
 ### How to use this app
- - To get started enter one of the following lines on the command line:
+  To get started enter one of the following lines on the command line:
  
- node bamazoncustomer.js
+
+    node bamazoncustomer.js
     node bamazonmanager.js
     node bamazonsupervisor.js
     
