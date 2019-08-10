@@ -28,6 +28,8 @@ function printData() {
     });
   }
 
+// The promptUser function handles the bulk of this portion of the app
+// This function uses inquirer to list actions where the user can input data to make a purchase which will also update the inventory
 function promptUser(){
     inquirer
         .prompt([

@@ -83,9 +83,9 @@ function newDept() {
 
 function salesDept() {
     connection.query(
-        "select department_id, departments.department_name, over_head_costs, product_sales " +
-        // "SUM(IFNULL(products.product_sales, 0)) as product_sales, " +
-        // "SUM(IFNULL(products.product_sales, 0)) - departments.over_head_costs as total_profit, " +
+        "select department_id, departments.department_name, over_head_costs, product_sales, " +
+        "SUM(IFNULL(products.product_sales, 0)) as product_sales, " +
+        "SUM(IFNULL(products.product_sales, 0)) - departments.over_head_costs as total_profit " +
         "from products " +
         "RIGHT join departments on products.department_name = departments.department_name " +
         "GROUP BY department_name, department_id, over_head_costs",
